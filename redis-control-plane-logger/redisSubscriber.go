@@ -10,7 +10,7 @@ import (
 
 var (
     // Redis Server Address
-    RedisServerAddr = "localhost:6379"
+    RedisServerAddr = "redis:6379"
 	subctx = context.Background()
 	subrdb *redis.Client
 	keyPattern = "radius:acct:"
