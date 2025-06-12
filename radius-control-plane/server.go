@@ -18,7 +18,7 @@ var (
 	/* Server Password */
 	ServerPassword = "mypassword"
 	/* Radius Server Listening Point*/
-	ServerPort = ":1813"
+	ServerPort = "redis:1813"
 )
 
 /* Main Entry Point to the Radius Server Implementation */
