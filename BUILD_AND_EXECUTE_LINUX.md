@@ -1,11 +1,11 @@
-** LINUX BASED EXECUTION **
+## LINUX BASED EXECUTION 
 
-** Steps to Build the solution **
+## Steps to Build the solution
 
 PRE-REQUISITE: 
  - Install latest go package.
 
-*** Radius Control Plane **
+### Radius Control Plane
 
 Move to the folder "radius-control-plane"
 
@@ -18,7 +18,7 @@ go build .
 The executable named "radius-control-plane" should be generated.
 
 
-*** Redis Control Plane Logger **
+### Redis Control Plane Logger
 
 Move to the folder "redis-control-plane-logger"
 
@@ -30,7 +30,7 @@ go build .
 
 The executable named "redis-control-plane-logger" should be generated.
 
-** Steps to Run the solution **
+## Steps to Run the solution **
 
 PRE-REQUISITE: 
  - A Linux based platform for execution
@@ -38,7 +38,7 @@ PRE-REQUISITE:
  - Install the radclient for traffic generation
  - Install redis and configure ```notify-keyspace-events "KEA"``` in the "/etc/redis.conf" 
  
-STEP 1 : Open a new terminal window and execute the following. 
+### STEP 1 : Open a new terminal window and execute the following. 
 This should start the Radius Server on default port 1813 with default user name "testuser" and default secret "testing123".
 This should start the Redis Client and connect to the default port 6379 in localhost.
 
@@ -47,14 +47,14 @@ cd radius-control-plane
 ./radius-control-plane
 ```
 
-STEP 2 : Open a new terminal window and execute the following.
+### STEP 2 : Open a new terminal window and execute the following.
 This should start the Redis Client and connect to the default port 6379 in localhost.
 
 ```
 cd redis-control-plane-logger
 ./redis-control-plane-logger
 ```
-STEP 3: Open a new terminal window and execute the following.
+### STEP 3: Open a new terminal window and execute the following.
 This should trigger Accounting-Request message through the radclient traffic simulator.
 
 ```
@@ -62,7 +62,7 @@ cd simulator
 radclient -x localhost:1813 acct testing123 < acct_start.txt
 ```
 
-RESULT: 
+**RESULT:** 
 The traffic generator should send the Accounting-Request towards radius-control-plane.
 The radius-control-plane verifies the user name and secret, parses the message and send Accounting-Response.
 The radius-control-plane prepares the Accounting record in the form of JSON and stores it in the REDIS persistent storage.
