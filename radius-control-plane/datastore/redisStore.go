@@ -13,7 +13,7 @@ var rdb *redis.Client
 
 var (
 	// Redis Server Address
-	RedisServerAddr = "localhost:6379"
+	RedisServerAddr = "redis:6379"
 	// Redis Record Persistent Duration (in hours)
 	RecordPersistDuration int = 24
 )
