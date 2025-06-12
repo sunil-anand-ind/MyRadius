@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+    redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+        networks:
+          - traffic
+        command: redis-server --notify-keyspace-events "KEA"
+        
+    radius-control-plane:
+        image: radius-control-plane:latest
+        depends_on:
+          - redis
+        networks:
+          - traffic
+        ports:
+          - 1813:1813
+        command: /app/radius-control-plane
+
+    redis-control-plane-logger:
+        image: redis-control-plane-logger:latest		
+        depends_on:
+          - redis
+        networks:
+          - traffic
+        command: /app/redis-control-plane-logger
+
+    radclient-test:
+        image: radclient-test:latest
+        networks:
+          - traffic
+        command: tail -f /dev/null
+
+networks:
+    traffic:
+        driver: bridge

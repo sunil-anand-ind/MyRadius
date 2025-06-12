@@ -1,0 +1,157 @@
+
+
+STEP 1 : START UP OF SOLUTION
+-----------------------------
+
+PS C:\WORK\SOURCE_CODE\MyProjects\MyRadius\RADIUS> docker-compose up  
+time="2025-06-12T20:15:03+05:30" level=warning msg="C:\\WORK\\SOURCE_CODE\\MyProjects\\MyRadius\\RADIUS\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 5/5
+ ✔ Network radius_traffic                         Created                                                                                  0.0s 
+ ✔ Container radius-redis-1                       Created                                                                                  0.1s 
+ ✔ Container radius-radclient-test-1              Created                                                                                  0.1s 
+ ✔ Container radius-redis-control-plane-logger-1  Created                                                                                  0.1s 
+ ✔ Container radius-radius-control-plane-1        Created                                                                                  0.1s 
+Attaching to radclient-test-1, radius-control-plane-1, redis-1, redis-control-plane-logger-1
+redis-1                       | Starting Redis Server
+redis-1                       | 1:C 12 Jun 2025 14:45:04.629 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-1                       | 1:C 12 Jun 2025 14:45:04.629 * Redis version=8.0.2, bits=64, commit=00000000, modified=1, pid=1, just started   
+redis-1                       | 1:C 12 Jun 2025 14:45:04.629 * Configuration loaded
+redis-1                       | 1:M 12 Jun 2025 14:45:04.629 * monotonic clock: POSIX clock_gettime
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * Running mode=standalone, port=6379.
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf> RedisBloom version 8.0.1 (Git=unknown)                                      
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf> Registering configuration options: [
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { bf-error-rate       :      0.01 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { bf-initial-size     :       100 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { bf-expansion-factor :         2 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { cf-bucket-size      :         2 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { cf-initial-size     :      1024 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { cf-max-iterations   :        20 }
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { cf-expansion-factor :         1 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf>     { cf-max-expansions   :        32 }                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * <bf> ]                                                                           
+redis-1                       | 1:M 12 Jun 2025 14:45:04.630 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so              
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Redis version found by RedisSearch : 8.0.2 - oss                        
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> RediSearch version 8.0.1 (Git=5688fcc)                                  
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Low level api version 1 initialized successfully
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000,
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Initialized thread pools!
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Disabled workers threadpool of size 0                                   
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Subscribe to config changes                                             
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Enabled role change notification                                        
+redis-1                       | 1:M 12 Jun 2025 14:45:04.631 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms                                                                                                                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <search> Register write commands
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so          
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries> RedisTimeSeries version 80001, git_sha=577bfa8b5909e7ee572f0b651399be8303dc6641                                                                                                                                     
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries> Redis version found by RedisTimeSeries : 8.0.2 - oss
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries> Registering configuration options: [
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-compaction-policy   :              }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-num-threads         :            3 }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-retention-policy    :            0 }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-duplicate-policy    :        block }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-chunk-size-bytes    :         4096 }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-encoding            :   compressed }
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-ignore-max-time-diff:            0 }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries>     { ts-ignore-max-val-diff :     0.000000 }                       
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries> ]                                                                   
+redis-1                       | 1:M 12 Jun 2025 14:45:04.632 * <timeseries> Detected redis oss                                                  
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so 
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Created new data type 'ReJSON-RL'
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> version: 80001 git sha: unknown branch: unknown                         
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Exported RedisJSON_V1 API                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Exported RedisJSON_V2 API                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Exported RedisJSON_V3 API                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Exported RedisJSON_V4 API                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Exported RedisJSON_V5 API
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Enabled diskless replication                                            
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <ReJSON> Initialized shared string cache, thread safe: false.                    
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so              
+redis-1                       | 1:M 12 Jun 2025 14:45:04.633 * <search> Acquired RedisJSON_V5 API                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.634 * Server initialized                                                               
+redis-1                       | 1:M 12 Jun 2025 14:45:04.634 * Ready to accept connections tcp                                                  
+redis-control-plane-logger-1  | 2025/06/12 14:45:04 Successfully subscribed to Redis Server: redis:6379                                         
+radius-control-plane-1        | 2025/06/12 14:45:04 Starting Radius Server on : :1813
+radius-control-plane-1        | 2025/06/12 14:45:04 Successfully connected to Redis Server: redis:6379
+
+
+STEP 2 : VERIFICATION OF SOLUTION
+---------------------------------
+
+PS C:\Users\sunil.anand> docker container ls -a
+CONTAINER ID   IMAGE                               COMMAND                  CREATED              STATUS              PORTS                    NAMES
+f6112d3c2045   radius-control-plane:latest         "/app/radius-control…"   About a minute ago   Up About a minute   0.0.0.0:1813->1813/tcp   radius-radius-control-plane-1
+41572bb72206   redis-control-plane-logger:latest   "/app/redis-control-…"   About a minute ago   Up About a minute                            radius-redis-control-plane-logger-1
+d691f99d345c   radclient-test:latest               "tail -f /dev/null"      About a minute ago   Up About a minute                            radius-radclient-test-1
+fa2326d3fb4c   redis:latest                        "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:6379->6379/tcp   radius-redis-1
+
+
+
+STEP 3 : EXECUTING ACCOUNTING REQUEST (radius-radclient-test)
+-------------------------------------------------------------
+
+PS C:\Users\sunil.anand> docker exec -it radius-radclient-test-1 /bin/sh
+
+/simulator # 
+/simulator # radclient -x radius-control-plane:1813  acct testing123 < acct_start.txt
+Sent Accounting-Request Id 11 from 0.0.0.0:55463 to 172.19.0.5:1813 length 96
+        User-Name = "testuser"
+        Acct-Status-Type = Start
+        Acct-Session-Id = "session12345"
+        NAS-IP-Address = 192.168.1.1
+        NAS-Port = 0
+        Calling-Station-Id = "123-456-7890"
+        Called-Station-Id = "987-654-3210"
+        Framed-IP-Address = 10.0.0.100
+Received Accounting-Response Id 11 from 172.19.0.5:1813 to 172.19.0.2:55463 length 20
+/simulator # 
+/simulator # radclient -x radius-control-plane:1813  acct testing123 < acct_stop.txt
+Sent Accounting-Request Id 190 from 0.0.0.0:60700 to 172.19.0.5:1813 length 114
+        User-Name = "testuser"
+        Acct-Status-Type = Stop
+        Acct-Session-Id = "session12345"
+        NAS-IP-Address = 192.168.1.1
+        NAS-Port = 0
+        Calling-Station-Id = "123-456-7890"
+        Called-Station-Id = "987-654-3210"
+        Framed-IP-Address = 10.0.0.100
+        Acct-Input-Octets = 100000
+        Acct-Output-Octets = 500000
+        Acct-Session-Time = 3600
+Received Accounting-Response Id 190 from 172.19.0.5:1813 to 172.19.0.2:60700 length 20
+
+
+
+STEP 4 : HANDLING OF ACCOUNTING REQUEST (radius-control-plane)
+--------------------------------------------------------------
+
+radius-control-plane-1        | 2025/06/12 14:48:05 Incoming Radius Request Name : testuser Password :
+radius-control-plane-1        | 2025/06/12 14:48:05 Incoming Accounting Request of type : 1
+radius-control-plane-1        | 2025/06/12 14:48:05 Incoming Request {testuser 192.168.1.1 0 Start session12345 10.0.0.100 123-456-7890 987-654-3210 1749739685 172.19.0.2:55463 Accounting-Request}
+radius-control-plane-1        | 2025/06/12 14:48:05 Record Key : radius:acct:testuser:session12345:1749739685
+radius-control-plane-1        | 2025/06/12 14:48:05 Writing Accounting-Response to 172.19.0.2:55463
+radius-control-plane-1        | 2025/06/12 14:48:10 Incoming Radius Request Name : testuser Password :
+radius-control-plane-1        | 2025/06/12 14:48:10 Incoming Accounting Request of type : 2
+radius-control-plane-1        | 2025/06/12 14:48:10 Incoming Request {testuser 192.168.1.1 0 Stop session12345 10.0.0.100 123-456-7890 987-654-3210 1749739690 172.19.0.2:60700 Accounting-Request}
+radius-control-plane-1        | 2025/06/12 14:48:10 Record Key : radius:acct:testuser:session12345:1749739690
+radius-control-plane-1        | 2025/06/12 14:48:10 Writing Accounting-Response to 172.19.0.2:60700
+
+
+STEP 5 : DISPLAYING THE ACCOUNTING INFORMATION - (radius-redis)
+--------------------------------------------------------------
+
+PS C:\Users\sunil.anand> docker exec -it radius-redis-1 /bin/sh
+# 
+# redis-cli
+127.0.0.1:6379> KEYS *
+1) "radius:acct:testuser:session12345:1749739690"
+2) "radius:acct:testuser:session12345:1749739685"
+127.0.0.1:6379>
+127.0.0.1:6379> exit
+
+
+STEP 6 : SUBSCRIBING TO THE REDIS KEYSPACE EVENTS - (redis-control-plane-logger)
+--------------------------------------------------------------------------------
+
+PS C:\Users\sunil.anand> docker exec -it radius-redis-control-plane-logger-1 /bin/sh
+/app # tail -f /var/log/radius_updates.log
+2025/06/12 14:48:05.698328 Matched Payload : radius:acct:testuser:session12345:1749739685
+2025/06/12 14:48:10.483760 Matched Payload : radius:acct:testuser:session12345:1749739690
